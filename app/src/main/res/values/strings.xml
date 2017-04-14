@@ -1,0 +1,8 @@
+<resources>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">GTS</string>
+
+    <string name="title_activity_arac_resmi_goruntule">AracResmiGoruntule</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
