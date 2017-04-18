@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -35,9 +36,13 @@ public class AracEkle extends AppCompatActivity {
                         isImageFitToScreen=false;
                         imageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                         imageView.setAdjustViewBounds(true);
+
                     }else{
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
                         isImageFitToScreen=true;
                         imageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+                        imageView.setPadding(6, 2, 6, 2);
                         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
                     }
                 }
