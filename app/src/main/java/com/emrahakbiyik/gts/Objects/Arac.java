@@ -14,14 +14,15 @@ public class Arac {
     public String Model;
     public String Plaka;
     public int[] photoID;
-    public BigDecimal Tramer;
-    public String BoyaDurumu;
+    public String Tramer;
+    public int[] BoyaDurumu;
     public BigDecimal AlisFiyati;
     public BigDecimal SatisFiyati;
     public String[] Masraflar;
     public HashMap MasrafTutari;
-    public BigDecimal FaturaFiyati;
-
+    public BigDecimal FaturaAlisFiyati;
+    public BigDecimal FaturaSatisFiyati;
+    // VergiTutari; // (fatura satış - alis fiyati + faturasatışfiyatı )*0,01
 
 
 
@@ -75,19 +76,19 @@ public class Arac {
         this.photoID = photoID;
     }
 
-    public BigDecimal getTramer() {
+    public String getTramer() {
         return Tramer;
     }
 
-    public void setTramer(BigDecimal tramer) {
+    public void setTramer(String tramer) {
         Tramer = tramer;
     }
 
-    public String getBoyaDurumu() {
+    public int[] getBoyaDurumu() {
         return BoyaDurumu;
     }
 
-    public void setBoyaDurumu(String boyaDurumu) {
+    public void setBoyaDurumu(int[] boyaDurumu) {
         BoyaDurumu = boyaDurumu;
     }
 
@@ -123,12 +124,12 @@ public class Arac {
         MasrafTutari = masrafTutari;
     }
 
-    public BigDecimal getFaturaFiyati() {
-        return FaturaFiyati;
+    public BigDecimal getFaturaAlisFiyati() {
+        return FaturaAlisFiyati;
     }
 
-    public void setFaturaFiyati(BigDecimal faturaFiyati) {
-        FaturaFiyati = faturaFiyati;
+    public void setFaturaAlisFiyati(BigDecimal faturaAlisFiyati) {
+        FaturaAlisFiyati = faturaAlisFiyati;
     }
 
     public int getAracID() {
@@ -137,5 +138,13 @@ public class Arac {
 
     public void setAracID(int aracID) {
         AracID = aracID;
+    }
+
+    public BigDecimal getFaturaSatisFiyati() {
+        return FaturaSatisFiyati;
+    }
+
+    public void setFaturaSatisFiyati(BigDecimal faturaSatisFiyati) {
+        FaturaSatisFiyati = faturaSatisFiyati;
     }
 }

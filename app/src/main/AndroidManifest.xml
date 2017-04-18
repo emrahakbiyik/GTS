@@ -19,9 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.AracEkle">
-
-        </activity>
+        <activity android:name=".Activities.AracEkle"></activity>
+        <activity android:name=".Activities.BoyaDurumu"></activity>
     </application>
 
 </manifest>

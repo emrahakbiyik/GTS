@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.emrahakbiyik.gts.Objects.Arac;
 import com.emrahakbiyik.gts.R;
 
 public class AracEkle extends AppCompatActivity {
@@ -48,6 +49,9 @@ public class AracEkle extends AppCompatActivity {
                 }
             });
         }
+
+        Arac mArac = new Arac();
+        mArac.setRumuz(R.id.rumuz);
 
     }
 }
