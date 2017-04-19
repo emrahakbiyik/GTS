@@ -8,7 +8,7 @@ import java.util.HashMap;
  */
 
 public class Arac {
-    public int AracID;
+    public String AracID;
     public String Rumuz;
     public String Marka;
     public String Model;
@@ -132,11 +132,11 @@ public class Arac {
         FaturaAlisFiyati = faturaAlisFiyati;
     }
 
-    public int getAracID() {
+    public String getAracID() {
         return AracID;
     }
 
-    public void setAracID(int aracID) {
+    public void setAracID(String aracID) {
         AracID = aracID;
     }
 
