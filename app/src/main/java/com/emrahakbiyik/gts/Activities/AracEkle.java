@@ -1,5 +1,6 @@
 package com.emrahakbiyik.gts.Activities;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.emrahakbiyik.gts.Objects.Arac;
 import com.emrahakbiyik.gts.Objects.SharedPref;
@@ -72,26 +74,44 @@ public class AracEkle extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
     public void doWork (View v){
-        if (v.getId()==R.id.btnKaydet){
+        if ((v.getId()==R.id.btnBoyaDurumu)){
+            Intent mIntent = new Intent(this, AracEkle.class);
+            mIntent.putExtra("AracId","Arac"); //TODO: burası dinamik olacak
+            startActivity(mIntent);
+        } else if (v.getId()==R.id.btnKaydet){ //TODO: Alanlar boş olunca izin verilmeyecek.
             Arac mArac = new Arac();
-            mArac.setAracID("1");
+            mArac.setAracID("Arac");
             mArac.setMarka(etMarka.getText().toString());
             mArac.setModel(etModel.getText().toString());
             mArac.setRumuz(etRumuz.getText().toString());
             mArac.setPlaka(etPlaka.getText().toString());
             mArac.setTramer(etTramer.getText().toString());
-            BigDecimal mAlisfiyati =new BigDecimal(etAlisFiyati.getText().toString());
-            mArac.setAlisFiyati(mAlisfiyati);
-            BigDecimal mSatisfiyati =new BigDecimal(etSatisFiyati.getText().toString());
-            mArac.setAlisFiyati(mSatisfiyati);
-            BigDecimal mFaturalisfiyati =new BigDecimal(etFaturaAlisFiyati.getText().toString());
-            mArac.setAlisFiyati(mFaturalisfiyati);
-            BigDecimal mFaturaSatisfiyati =new BigDecimal(etFaturaSatisFiyati.getText().toString());
-            mArac.setAlisFiyati(mFaturaSatisfiyati);
             mArac.setMarka(etMarka.getText().toString());
-
-            msP.getInstance(getApplicationContext()).setArac(mArac);
+            try {
+                BigDecimal mAlisfiyati = new BigDecimal(etAlisFiyati.getText().toString());
+                mArac.setAlisFiyati(mAlisfiyati);
+                BigDecimal mSatisfiyati = new BigDecimal(etSatisFiyati.getText().toString());
+                mArac.setAlisFiyati(mSatisfiyati);
+                BigDecimal mFaturalisfiyati = new BigDecimal(etFaturaAlisFiyati.getText().toString());
+                mArac.setAlisFiyati(mFaturalisfiyati);
+                BigDecimal mFaturaSatisfiyati = new BigDecimal(etFaturaSatisFiyati.getText().toString());
+                mArac.setAlisFiyati(mFaturaSatisfiyati);
+            } catch (Exception e){
+                Toast.makeText(getApplicationContext(),"e",Toast.LENGTH_SHORT);
+            }
+            try {
+                msP.getInstance(getApplicationContext()).addArac(mArac);
+                Toast.makeText(getApplicationContext(),"Arac Eklendi",Toast.LENGTH_SHORT);
+            }catch (Exception e) {
+                Toast.makeText(getApplicationContext(),"e",Toast.LENGTH_SHORT);
+            }
+            finish();
         }
     }
 }

@@ -64,7 +64,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
 
         holder.arac_adi.setText(aracList.get(position).getRumuz());
         holder.arac_plakasi.setText(aracList.get(position).getPlaka());
-        holder.arac_photo.setImageResource(aracList.get(position).getPhotoID()[0]);
+        holder.arac_photo.setImageResource(R.drawable.car);// holder.arac_photo.setImageResource(aracList.get(position).getPhotoID()[0]); //TODO: fotograflar id lendirilince düzeltilecek
 
     }
 
