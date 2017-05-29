@@ -1,4 +1,4 @@
-package com.emrahakbiyik.gts.Objects;
+package com.emrahakbiyik.gts.Models;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

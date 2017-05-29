@@ -13,8 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.emrahakbiyik.gts.Objects.Arac;
-import com.emrahakbiyik.gts.Objects.SharedPref;
+import com.emrahakbiyik.gts.Models.Arac;
+import com.emrahakbiyik.gts.Models.SharedPref;
 import com.emrahakbiyik.gts.R;
 import com.emrahakbiyik.gts.Triggers.RecyclerItemClickListener;
 import com.emrahakbiyik.gts.Triggers.SimpleRecyclerAdapter;
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent mIntent = new Intent(getApplicationContext(), AracEkle.class);
                 startActivity(mIntent);
+
             }
         });
 
@@ -96,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
         AracList = SharedPref.getInstance(getApplicationContext()).getAraclist();
         mSimRecAdapter = new SimpleRecyclerAdapter(AracList);
         recycler_view.setAdapter(mSimRecAdapter);
-        //mSimRecAdapter.notifyDataSetChanged();
-
     }
 
 }

@@ -1,4 +1,4 @@
-package com.emrahakbiyik.gts.Objects;
+package com.emrahakbiyik.gts.Models;
 import android.content.Context;
 import java.util.ArrayList;
 
@@ -21,8 +21,8 @@ public class SharedPref {
     }
 
     public ArrayList<Arac> getAraclist() {
-        ArrayList<Arac> mAracList= (ArrayList<Arac>)(Object) tinyDB.getListObject("Arac", Arac.class);
-        return mAracList;
+        return  (ArrayList<Arac>)(Object) tinyDB.getListObject("Arac", Arac.class);
+
     }
 
     public void addArac(Arac arac){

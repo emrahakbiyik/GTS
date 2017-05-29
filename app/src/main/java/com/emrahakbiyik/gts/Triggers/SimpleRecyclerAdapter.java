@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.emrahakbiyik.gts.Objects.Arac;
+import com.emrahakbiyik.gts.Models.Arac;
 import com.emrahakbiyik.gts.R;
 
 import java.util.List;

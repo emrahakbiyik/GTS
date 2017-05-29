@@ -6,4 +6,198 @@
     android:layout_height="match_parent"
     tools:context="com.emrahakbiyik.gts.Activities.BoyaDurumu">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:layout_height="0dp">
+
+        <Button
+            android:id="@+id/btnBoyaDurumuOK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="doWork"
+            android:text="KAYDET"
+            app:layout_constraintBaseline_toBaselineOf="@+id/imageView"
+            tools:layout_editor_absoluteX="8dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                app:srcCompat="@drawable/vehicle_paint"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp" />
+
+            <TextView
+                android:id="@+id/tvTavan"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvOnTampon"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/tvTavan"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="false"
+                android:layout_marginBottom="210dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvOnKaput"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/tvTavan"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="false"
+                android:layout_marginBottom="140dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvArkaKaput"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/tvTavan"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="false"
+                android:layout_marginBottom="-120dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvArkaTampon"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/tvTavan"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="false"
+                android:layout_marginBottom="-200dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvSolArkaCamurluk"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_alignRight="@+id/tvTavan"
+                android:layout_below="@+id/tvTavan"
+                android:layout_marginRight="95dp"
+                android:layout_marginTop="80dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvSagArkaCamurluk"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_alignLeft="@+id/tvTavan"
+                android:layout_below="@+id/tvTavan"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="80dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvSolArkaKapi"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_alignRight="@+id/tvTavan"
+                android:layout_below="@+id/tvTavan"
+                android:layout_marginRight="110dp"
+                android:layout_marginTop="15dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvSagArkaKapi"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_alignLeft="@+id/tvTavan"
+                android:layout_below="@+id/tvTavan"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="15dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvSolOnCamurluk"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_above="@+id/tvTavan"
+                android:layout_alignEnd="@+id/tvTavan"
+                android:layout_marginBottom="80dp"
+                android:layout_marginRight="95dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvSagOnCamurluk"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_above="@+id/tvTavan"
+                android:layout_alignLeft="@+id/tvTavan"
+                android:layout_marginBottom="80dp"
+                android:layout_marginLeft="90dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvSolOnKapi"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_above="@+id/tvTavan"
+                android:layout_alignEnd="@+id/tvTavan"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="110dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+            <TextView
+                android:id="@+id/tvSagOnKapi"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_above="@+id/tvTavan"
+                android:layout_alignLeft="@+id/tvTavan"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="100dp"
+                android:clickable="true"
+                android:onClick="boyaDurumuClick"
+                android:text="O" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

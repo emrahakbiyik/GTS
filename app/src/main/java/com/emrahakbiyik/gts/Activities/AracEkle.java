@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.emrahakbiyik.gts.Objects.Arac;
-import com.emrahakbiyik.gts.Objects.SharedPref;
+import com.emrahakbiyik.gts.Models.Arac;
+import com.emrahakbiyik.gts.Models.SharedPref;
 import com.emrahakbiyik.gts.R;
 
 import java.math.BigDecimal;
@@ -21,13 +21,15 @@ public class AracEkle extends AppCompatActivity {
     boolean isImageFitToScreen;
 
     EditText etRumuz, etMarka, etModel, etPlaka, etTramer, etAlisFiyati, etSatisFiyati, etFaturaAlisFiyati, etFaturaSatisFiyati;
-    SharedPref msP;
+    Arac mArac;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arac_ekle);
+
+        mArac = new Arac();
 
         etRumuz = (EditText) findViewById(R.id.rumuz);
         etMarka = (EditText) findViewById(R.id.marka);
@@ -75,17 +77,22 @@ public class AracEkle extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent mIntent) {
+        if (resultCode == RESULT_OK && requestCode == 1) { //Req Code Boya durumu=1
+            if (mIntent.hasExtra("BoyaDurumu")) {
+                mArac.setBoyaDurumu(mIntent.getExtras().getIntArray("BoyaDurumu"));
+            } else {
+                Toast.makeText(getApplicationContext(), "Boya Durumu kaydedilemedi", Toast.LENGTH_SHORT).show();
+            }
+        } //else if (resultCode==RESULT_OK && )
 
+    }
     public void doWork (View v){
-        if ((v.getId()==R.id.btnBoyaDurumu)){
-            Intent mIntent = new Intent(this, AracEkle.class);
-            mIntent.putExtra("AracId","Arac"); //TODO: burası dinamik olacak
-            startActivity(mIntent);
+        if ((v.getId()==R.id.btnBoyaDurumu)){  //REQ CODE:1
+            Intent mIntent = new Intent(this, BoyaDurumu.class);
+            startActivityForResult(mIntent,1);
         } else if (v.getId()==R.id.btnKaydet){ //TODO: Alanlar boş olunca izin verilmeyecek.
-            Arac mArac = new Arac();
+
             mArac.setAracID("Arac");
             mArac.setMarka(etMarka.getText().toString());
             mArac.setModel(etModel.getText().toString());
@@ -97,19 +104,19 @@ public class AracEkle extends AppCompatActivity {
                 BigDecimal mAlisfiyati = new BigDecimal(etAlisFiyati.getText().toString());
                 mArac.setAlisFiyati(mAlisfiyati);
                 BigDecimal mSatisfiyati = new BigDecimal(etSatisFiyati.getText().toString());
-                mArac.setAlisFiyati(mSatisfiyati);
+                mArac.setSatisFiyati(mSatisfiyati);
                 BigDecimal mFaturalisfiyati = new BigDecimal(etFaturaAlisFiyati.getText().toString());
-                mArac.setAlisFiyati(mFaturalisfiyati);
+                mArac.setFaturaAlisFiyati(mFaturalisfiyati);
                 BigDecimal mFaturaSatisfiyati = new BigDecimal(etFaturaSatisFiyati.getText().toString());
-                mArac.setAlisFiyati(mFaturaSatisfiyati);
+                mArac.setFaturaSatisFiyati(mFaturaSatisfiyati);
             } catch (Exception e){
-                Toast.makeText(getApplicationContext(),"e",Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(),"e",Toast.LENGTH_SHORT).show();
             }
             try {
-                msP.getInstance(getApplicationContext()).addArac(mArac);
-                Toast.makeText(getApplicationContext(),"Arac Eklendi",Toast.LENGTH_SHORT);
+                SharedPref.getInstance(getApplicationContext()).addArac(mArac);
+                Toast.makeText(getApplicationContext(),"Arac Eklendi",Toast.LENGTH_SHORT).show();
             }catch (Exception e) {
-                Toast.makeText(getApplicationContext(),"e",Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(),"e",Toast.LENGTH_SHORT).show();
             }
             finish();
         }

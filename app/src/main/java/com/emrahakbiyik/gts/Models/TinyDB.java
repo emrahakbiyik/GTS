@@ -1,4 +1,4 @@
-package com.emrahakbiyik.gts.Objects;
+package com.emrahakbiyik.gts.Models;
 
 /**
  * Created by asay on 30.12.2015.
